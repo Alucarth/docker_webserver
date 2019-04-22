@@ -1,0 +1,14 @@
+version: "3"
+services:
+  app:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html/public
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: 123456
